@@ -7,11 +7,17 @@ services:
   php: #on indique le nom de l'image PHP
     image: library/php:7.4-fpm-alpine
     #on indique à docker le volume ou docker doit pointer pour les envoyer vers le volume  mon dossier : env docker
+    expose:
+      - 9000
     volumes:
       - ".:/var/www/html/"
 
   nginx:
     image: library/nginx:latest
+    expose: #On ordonne à docker d'exposer hors de Docker le port 80, on dois restart le container
+      - 80  #atention 8080 est réservé à Windobe
+    ports:
+      - 80:80
     volumes:
       - ".:/var/www/html/"
       - ./docker/nginx/templates/:/etc/nginx/templates/
