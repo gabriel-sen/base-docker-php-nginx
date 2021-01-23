@@ -1,0 +1,17 @@
+
+# On indique  la version de Docker à utiliser
+version: "3"
+
+# On déclare les différent services que docker vas créer
+services:
+  php: #on indique le nom de l'image PHP
+    image: library/php:7.4-fpm-alpine
+    #on indique à docker le volume ou docker doit pointer pour les envoyer vers le volume  mon dossier : env docker
+    volumes:
+      - ".:/var/www/html/"
+
+  nginx:
+    image: library/nginx:latest
+    volumes:
+      - ".:/var/www/html/"
+      - ./docker/nginx/templates/:/etc/nginx/templates/

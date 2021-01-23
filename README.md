@@ -1,7 +1,7 @@
 
 # Docker Base PHP-nginx
 
-Cette environnement de travaille permet de lancer un projet php procedural type Bac a sable pour apprendre en s'amusant :D 
+Cette environnement de travaille permet de lancer un projet php procedural type Bac a sable pour apprendre en s'amusant :D
 
 ## Requirements
 
@@ -22,7 +22,7 @@ docker-compose up -d
 # docker-compose up -d [nom du container]
 #lance un container unique 
 ```
-#### Installation de Composer 
+#### Installation de Composer
 - installer composer  dans docker : https://getcomposer.org/download/
 
 ```shell
