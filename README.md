@@ -1,60 +1,51 @@
 
+Avant toute choses, un grand merci à @samijnih pour m'avoir enseigné Docker et relue/modifié ce Readme.
+https://github.com/samijnih
+
 # Docker Base PHP-nginx
 
-Docker est un simulateur d'environement ou vous pouvez installler difeerent outils pour pouvoir les utiliser.
-L'utilité est de pouvoir partager cette configuration avec tout vos collègues pour avoir le même environement de dev sur vos machines. 
+L'un des principaux avantages est de mutualiser l'environnement technique (aka stack tech) au sein d'un projet, d'un groupe, d'une corporation, afin de faciliter les phases de développement tout comme les phases de mise en ligne avec des solutions tierces compatible comme Google Cloud Engine, Amazon Web Services etc.
 
-Cette environnement de travaille permet de lancer un projet php procedural avec un serveur nginx et non un server apache.
-C'est très simple. installez docker, pullez ce projet et lancez la commande : 
-  ```shell
-  docker-compose up -d 
-  ```
-  Normalement, conformément au fichier de configuation, toute les images devraient être téléchargé dans votre Docker et l'environement seras prêt à afficher "hello world" dans votre localhost.
+Nous avons ici en outre la possiblité de lancer un projet PHP procédural avec un serveur HTTP Nginx plutôt qu'un serveur HTTP apache.
 
-## Requirements
-
-- Docker v3 // voir la version spécifié dans 
-  https://docs.docker.com/docker-for-windows/install/
-- docker-compose
-  ```shell
-  docker pull composer:latest
-   ```
-  https://docs.docker.com/compose/install/
-  
-- php7.4-fpm-alpine
-  ```shell
-  docker pull php:fpm-alpine
-  ```
-  https://hub.docker.com/_/php?tab=tags&page=1&ordering=last_updated
-  
-- nginx:latest
-  ```shell
-  docker pull nginx:latest
-  ```
-  https://hub.docker.com/_/nginx?tab=tags
-
-#### Lancer docker
+C'est très simple. installez Docker, clonez ce projet et lancez la commande :
 
 ```shell
 docker-compose up -d 
-
-#lance les services définie dans le docker-compose.yml
-# l'instruction -d lance docker en arriere plan 
-
-# docker-compose up -d [nom du container]
-#lance un container unique 
 ```
-#### Installation de Composer
-- installer composer  dans docker : https://getcomposer.org/download/
+
+Normalement, conformément au fichier de configuration (*docker-compose.yml*), toutes les images dockers devraient être téléchargées sur votre machine et l’environnement sera prêt à afficher "hello world" dans à l'adresse localhost ou 127.0.0.1.
+
+## Prérequis
+
+- docker // voir la version spécifié dans https://docs.docker.com/docker-for-windows/install/
+- docker-compose
+
+## Composer
+
+Pour avoir composer, il faut rentrer dans le container php pour le télécharger à la main (pour le moment)
 
 ```shell
+docker-compose up -d php
+docker-compose exec php bash
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
-```
+mv composer.phar composer && chmod +x composer && mv composer /usr/local/bin
+composer --version
+``` 
 
-### a venir
+## Aide
 
-Je vais prochainement ajouter SQL / PhpMyadmin sur ce repo
-Un autre repo avec Symfony arriveras dans la semain.
+> docker-compose up -d [nom du container]
+
+Demande à docker de créer et démarrer le service spécifié dans le fichier de configuration.
+
+ L'option `-d` permet de d'avoir le service qui tourne en arrière-plan pour ne pas être bloquant au niveau I/O sur le terminal.
+
+### À venir
+
+Je vais prochainement ajouter SQL / PHPMyAdmin sur ce repo
+
+Un autre repo avec Symfony arrivera dans la semaine.
