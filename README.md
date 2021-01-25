@@ -13,7 +13,7 @@ C'est très simple. installez docker, pullez ce projet et lancez la commande :
 
 ## Requirements
 
-- Docker 
+- Docker v3 // voir la version spécifié dans 
   https://docs.docker.com/docker-for-windows/install/
 - docker-compose
   ```shell
