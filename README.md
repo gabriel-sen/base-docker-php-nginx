@@ -11,7 +11,7 @@ Cette environnement de travaille permet de lancer un projet php procedural type 
 - nginx:latest
 
 
-#### Lancer le container
+#### Lancer docker
 
 ```shell
 docker-compose up -d 
@@ -31,3 +31,8 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
+
+### a venir
+
+Je vais prochainement ajouter SQL / PhpMyadmin sur ce repo
+Un autre repo avec Symfony arriveras dans la semain.
