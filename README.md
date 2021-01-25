@@ -5,11 +5,25 @@ Cette environnement de travaille permet de lancer un projet php procedural type 
 
 ## Requirements
 
-- docker
+- Docker 
+  https://docs.docker.com/docker-for-windows/install/
 - docker-compose
+  ```shell
+  docker pull composer:latest
+   ```
+  https://docs.docker.com/compose/install/
+  
 - php7.4-fpm-alpine
+  ```shell
+  docker pull php:fpm-alpine
+  ```
+  https://hub.docker.com/_/php?tab=tags&page=1&ordering=last_updated
+  
 - nginx:latest
-
+  ```shell
+  docker pull nginx:latest
+  ```
+  https://hub.docker.com/_/nginx?tab=tags
 
 #### Lancer docker
 
