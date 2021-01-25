@@ -1,7 +1,15 @@
 
 # Docker Base PHP-nginx
 
-Cette environnement de travaille permet de lancer un projet php procedural type Bac a sable pour apprendre en s'amusant :D
+Docker est un simulateur d'environement ou vous pouvez installler difeerent outils pour pouvoir les utiliser.
+L'utilité est de pouvoir partager cette configuration avec tout vos collègues pour avoir le même environement de dev sur vos machines. 
+
+Cette environnement de travaille permet de lancer un projet php procedural avec un serveur nginx et non un server apache.
+C'est très simple. installez docker, pullez ce projet et lancez la commande : 
+  ```shell
+  docker-compose up -d 
+  ```
+  Normalement, conformément au fichier de configuation, toute les images devraient être téléchargé dans votre Docker et l'environement seras prêt à afficher "hello world" dans votre localhost.
 
 ## Requirements
 
